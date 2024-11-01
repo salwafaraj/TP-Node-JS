@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Reading Tracker</title>
+    <style>
+        body {
+            background-color: #f4f4f9; /* Soft background color */
+            padding: 40px;
+            font-family: 'Arial', sans-serif;
+            color: #333; /* Dark text for better readability */
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #ffffff; /* White background for the container */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        }
+        h1 {
+            font-size: 28px; /* Increased size for the title */
+            font-weight: bold;
+            margin-bottom: 25px;
+            text-align: center;
+            color: #007bff; /* Primary color for the title */
+        }
+        form {
+            padding: 25px;
+            border-radius: 10px;
+            transition: transform 0.2s ease;
+        }
+        form:hover {
+            transform: scale(1.02); /* Slight scale effect on hover */
+        }
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc; /* Soft border */
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+            outline: none; /* Remove default outline */
+        }
+        button {
+            width: 100%;
+            background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient background */
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for button */
+        }
+        button:hover {
+            background: linear-gradient(135deg, #0056b3, #00408b); /* Darker gradient on hover */
+            transform: translateY(-2px); /* Lift effect */
+        }
+        #bookTable {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            color: #444; /* Dark color for text in the table */
+        }
+        #bookTable th, #bookTable td {
+            border: 1px solid #ddd; /* Light border for table cells */
+            padding: 10px;
+            text-align: left;
+        }
+        #bookTable th {
+            background-color: #007bff; /* Primary color for table header */
+            color: white; /* White text in header */
+            font-weight: bold; /* Bold header */
+        }
+        #bookTable tr:hover {
+            background-color: #f1f1f1; /* Light grey on row hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add a New Book</h1>
+        <form id="bookForm">
+            <input id="title" type="text" placeholder="Title" required>
+            <input id="author" type="text" placeholder="Author" required>
+            <input id="pages" type="number" placeholder="Number of Pages" required>
+            <input id="suggestedBy" type="text" placeholder="Suggested By" required>
+            <select id="status" required>
+                <option value="" disabled selected>Select Reading Status</option>
+                <option value="Not Started">Not Started</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+            <button type="submit">Add Book</button>
+        </form>
+
+        <table id="bookTable">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>Suggested By</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="bookList"></tbody>
+        </table>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
